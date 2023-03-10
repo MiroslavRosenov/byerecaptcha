@@ -137,17 +137,17 @@ def searchTitle(title):
     classes = ('bus', 'car', 'bicycle', 'fire_hydrant', 'crosswalk', 'stair', 'bridge', 'traffic_light',
                'vehicles', 'motorbike', 'boat', 'chimneys')
     possibleTitles = (
-        ('autobuses', 'autobús', 'bus', 'buses', 'автобус', 'автобусы'),
+        ('autobuses', 'autobús', 'bus', 'buses', 'автобус', 'автобусы', 'автобус', 'автобуси'),
         ('automóviles', 'cars', 'car', 'coches', 'coche', 'автомобили'),
-        ('bicicletas', 'bicycles', 'bicycle', 'bici', 'велосипеды'),
+        ('bicicletas', 'bicycles', 'bicycle', 'bici', 'велосипеды', 'велосипеди'),
         ('boca de incendios', 'boca_de_incendios', 'una_boca_de_incendios', 'fire_hydrant', 'fire_hydrants',
-         'a_fire_hydrant', 'bocas_de_incendios', 'пожарные гидранты', 'пожарные_гидранты'),
-        ('cruces_peatonales', 'crosswalk', 'crosswalks', 'cross_walks', 'cross_walk', 'pasos_de_peatones', 'пешеходные переходы', 'пешеходные_переходы'),
-        ('escaleras', 'stair', 'stairs', 'лестницы'),
-        ('puentes', 'bridge', 'bridges', 'мосты'),
-        ('semaforos', 'semaphore', 'semaphores', 'traffic_lights', 'traffic_light', 'semáforos', 'светофоры', 'светофор'),
-        ('vehículos', 'vehicles', 'транспортные средства', 'транспортные_средства'),
-        ('motocicletas', 'motocicleta', 'motorcycle', 'motorcycle', 'motorbike', 'мотоциклы', 'мотоцикл'),
+         'a_fire_hydrant', 'bocas_de_incendios', 'пожарные гидранты', 'пожарные_гидранты', 'пожарни кранове', 'пожарен кран'),
+        ('cruces_peatonales', 'crosswalk', 'crosswalks', 'cross_walks', 'cross_walk', 'pasos_de_peatones', 'пешеходные переходы', 'пешеходные_переходы', 'пешеходни пътеки'),
+        ('escaleras', 'stair', 'stairs', 'лестницы', 'стълби'),
+        ('puentes', 'bridge', 'bridges', 'мосты', 'мостове'),
+        ('semaforos', 'semaphore', 'semaphores', 'traffic_lights', 'traffic_light', 'semáforos', 'светофоры', 'светофор', 'светофари'),
+        ('vehículos', 'vehicles', 'транспортные средства', 'транспортные_средства', 'коли'),
+        ('motocicletas', 'motocicleta', 'motorcycle', 'motorcycle', 'motorbike', 'мотоциклы', 'мотоциклет', 'мотоциклети'),
         ('boat', 'boats', 'barcos', 'barco', 'лодки', 'лодка'),
         ('chimeneas', 'chimneys', 'chimney', 'chimenea', 'дымовые трубы', 'дымовые_трубы')
     )
@@ -216,7 +216,7 @@ def predict(file, net):
 
         with open(fileNames, 'r') as f:
             classes = [line.strip() for line in f.readlines()]
-
+        
         blob = dnn.blobFromImage(image, scale, (416, 416), (0, 0, 0), True, crop=False)
         net.setInput(blob)
         outs = net.forward(getOutputLayers(net))
